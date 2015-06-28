@@ -3,7 +3,6 @@ package com.mobileia.mcdropdownmenu.example;
 import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -21,38 +20,35 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Create adapter
+        MenuAdapter adapter = new MenuAdapter(this);
+        adapter.addItem(new MenuItem(1, "Item 1"));
+        adapter.addItem(new MenuItem(2, "Item 2"));
+        adapter.addItem(new MenuItem(3, "Item 3"));
+        adapter.addItem(new MenuItem(4, "Item 4"));
+        adapter.addItem(new MenuItem(5, "Item 5"));
+        adapter.addItem(new MenuItem(6, "Item 6"));
+        adapter.addItem(new MenuItem(7, "Item 7"));
+        adapter.addItem(new MenuItem(8, "Item 8"));
+        adapter.addItem(new MenuItem(9, "Item 9"));
+        adapter.addItem(new MenuItem(10, "Item 10"));
+        adapter.addItem(new MenuItem(11, "Item 11"));
+        adapter.addItem(new MenuItem(11, "Item 12"));
+        adapter.addItem(new MenuItem(11, "Item 13"));
+        adapter.addItem(new MenuItem(11, "Item 14"));
+
         mMenu = (MCDropdownMenu)findViewById(R.id.menu);
         mMenu.setLayoutMainView(R.layout.menu_main_view);
         mMenu.setOnMenuSelectedListener(new OnMenuSelectedListener() {
             @Override
             public void onSelected(View listview, int selectedIndex) {
-                Toast.makeText(MainActivity.this, "Position: " + selectedIndex, Toast.LENGTH_SHORT);
+                Toast.makeText(MainActivity.this, "Position: " + selectedIndex, Toast.LENGTH_SHORT).show();
             }
         });
+        mMenu.setAdapter(adapter);
 
         TextView title = (TextView)mMenu.findViewById(R.id.textView2);
         title.setText("Home");
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
 }

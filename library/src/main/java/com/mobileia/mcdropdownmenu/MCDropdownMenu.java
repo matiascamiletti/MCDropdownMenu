@@ -83,6 +83,12 @@ public class MCDropdownMenu extends RelativeLayout {
                 }
             }
         });
+        mListView.setDivider(null);
+    }
+
+    // Functions
+    public void dismiss() {
+        mPopupWindow.dismiss();
     }
 
     // Setters
@@ -98,6 +104,11 @@ public class MCDropdownMenu extends RelativeLayout {
 
     public void setOnMenuSelectedListener(OnMenuSelectedListener listener) {
         mListener = listener;
+    }
+
+    // Getters
+    public ListView getListView() {
+        return mListView;
     }
 
 
