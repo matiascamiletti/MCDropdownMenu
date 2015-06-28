@@ -12,6 +12,9 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -25,6 +28,9 @@ public class MCDropdownMenu extends RelativeLayout {
 
     private PopupWindow mPopupWindow = null;
 
+    private ListView mListView = null;
+
+    private OnMenuSelectedListener mListener = null;
     /**
      * Init
      */
@@ -67,12 +73,16 @@ public class MCDropdownMenu extends RelativeLayout {
                 return false;
             }
         });*/
-    }
 
-    // Override
-    @Override
-    protected void onDraw(Canvas canvas) {
-        super.onDraw(canvas);
+        mListView = (ListView)popupView.findViewById(R.id.listView);
+        mListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
+                if (mListener != null) {
+                    mListener.onSelected(adapterView, position);
+                }
+            }
+        });
     }
 
     // Setters
@@ -80,6 +90,14 @@ public class MCDropdownMenu extends RelativeLayout {
         mLayoutMainView = resource;
         // Generate main view
         initMainView();
+    }
+
+    public void setAdapter(BaseAdapter adapter) {
+        mListView.setAdapter(adapter);
+    }
+
+    public void setOnMenuSelectedListener(OnMenuSelectedListener listener) {
+        mListener = listener;
     }
 
 

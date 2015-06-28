@@ -4,9 +4,12 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.mobileia.mcdropdownmenu.MCDropdownMenu;
+import com.mobileia.mcdropdownmenu.OnMenuSelectedListener;
 
 
 public class MainActivity extends Activity {
@@ -20,6 +23,12 @@ public class MainActivity extends Activity {
 
         mMenu = (MCDropdownMenu)findViewById(R.id.menu);
         mMenu.setLayoutMainView(R.layout.menu_main_view);
+        mMenu.setOnMenuSelectedListener(new OnMenuSelectedListener() {
+            @Override
+            public void onSelected(View listview, int selectedIndex) {
+                Toast.makeText(MainActivity.this, "Position: " + selectedIndex, Toast.LENGTH_SHORT);
+            }
+        });
 
         TextView title = (TextView)mMenu.findViewById(R.id.textView2);
         title.setText("Home");
