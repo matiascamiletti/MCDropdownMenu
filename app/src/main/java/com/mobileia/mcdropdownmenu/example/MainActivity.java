@@ -22,7 +22,7 @@ public class MainActivity extends Activity {
         mMenu.setLayoutMainView(R.layout.menu_main_view);
 
         TextView title = (TextView)mMenu.findViewById(R.id.textView2);
-        title.setText("Titulo del menu");
+        title.setText("Home");
     }
 
     @Override
