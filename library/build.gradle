@@ -1,14 +1,38 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo = 'maven'
+    bintrayName = 'mc-dropdown-menu'
+
+    publishedGroupId = 'com.mobileia'
+    libraryName = 'MCDropdownMenu'
+    artifact = 'mc-dropdown-menu'
+
+    libraryDescription = 'This library for easy create DropDown Menu'
+
+    siteUrl = 'https://github.com/matiascamiletti/MCDropdownMenu'
+    gitUrl = 'https://github.com/matiascamiletti/MCDropdownMenu.git'
+
+    libraryVersion = '0.1.1'
+
+    developerId = 'matiascamiletti'
+    developerName = 'Matias Camiletti'
+    developerEmail = 'matias.camiletti@gmail.com'
+
+    licenseName = 'The Apache Software License, Version 2.0'
+    licenseUrl = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+    allLicenses = ["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 22
-    buildToolsVersion "21.1.2"
+    buildToolsVersion "22.0.1"
 
     defaultConfig {
         minSdkVersion 14
         targetSdkVersion 22
         versionCode 1
-        versionName "1.0"
+        versionName "0.1.1"
     }
     buildTypes {
         release {
@@ -22,3 +46,6 @@ dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile 'com.android.support:appcompat-v7:22.2.0'
 }
+
+apply from: '../maven.gradle'
+apply from: '../bintray.gradle'
