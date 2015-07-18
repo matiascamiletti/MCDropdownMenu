@@ -15,3 +15,10 @@ mMenu.setOnMenuSelectedListener(new OnMenuSelectedListener() {
     }
 });
 </pre>
+
+# Install
+<pre>
+dependencies {
+    compile 'com.mobileia:mc-dropdown-menu:0.1.3'
+}
+</pre>
