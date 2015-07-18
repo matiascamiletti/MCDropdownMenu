@@ -1,6 +1,7 @@
 # MCDropdownMenu
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/CBqn5tkwXWQ" frameborder="0" allowfullscreen></iframe>
+<img src="http://www.mobileia.com/github/OBHL1o.gif" />
+
 Preview: http://youtu.be/CBqn5tkwXWQ
 
 # Usage
